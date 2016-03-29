@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="gapps">
 
 <head>
 
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>{G.apps}</title>
+    <title>{{cari}}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../prj/css/bootstrap.min.css" rel="stylesheet">
@@ -18,39 +18,34 @@
     <link href="../prj/css/blog-home.css" rel="stylesheet">
     <!--Angular init -->
     <script type="text/javascript" src="../prj/angular/angular.min.js"></script>
+    <script type="text/javascript" src="../prj/js/controller.js"></script>
+
 </head>
 
 <body>
 
-   <!-- Navigation -->
+<!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="">{G.apps}</a>
-
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            
-            <!-- /.navbar-collapse -->
+        <div class="navbar-header">
+        <a class="navbar-brand" href="">{G.apps}</a>
         </div>
-        <!-- /.container -->
-
+         <div class="navbar-text navbar-right" ng-controller="controller">username {{dataKaryawan[0].name}}</div>
+        <form class="navbar-form navbar-right" role="cari"></form> 
     </nav>
-
 <!-- Page Content -->
     <div class="container">
     <div class="row">
                        
 <!-- Blog Entries Column -->
-    <div class="col-md-8">
-         </div>
+    <div class="col-md-8" ng-controller="controller">
+      <li ng-repeat="item in dataKaryawan">
+     <h>nama :  {{item.name}}</h1> 
+     <p><h>Deskripsi : {{item.description}}</h2></p>
+        
+     </li>
+                     <!--isi-->
+      
+    </div>
         
 <!-- Blog Sidebar Widgets Column -->
 <div class="col-md-4">
@@ -60,13 +55,13 @@
                         <h4>Blog Search</h4>
                         <div class="input-group">
                         <form action="/cari" method="POST" >
-                        <input type="text" class="form-control" name="judul" id="judul" ng-model="cari">
+                        <input type="text" class="form-control" name="input" id="input" ng-model="cari">
                         <button class="btn btn-default" type="submit">mulai mencari {{cari}}</button>
                         </form>     
                         </div>
 <!-- /.input-group -->
                 </div>
-
+      
 <!-- Judul Artikel -->
             <div class="well">
                 <h4>Judul Artikel</h4>
@@ -83,6 +78,7 @@
                             </div>
 <!-- /.col-lg-6 -->
                 
+      
                         </div>
 <!-- /.row -->
                         </div>
