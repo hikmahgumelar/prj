@@ -95,7 +95,20 @@
     </tbody>
   </table>
         </div> 
+    <div ng-controller="myCtrl">
+
+
+<form ng-submit="kirim()">
+     <p>Nama        : <input type="text" name="nama" ng-model="nama" required /></p>
+     <p>Negara      : <input type="text" name="negara" ng-model="negara" required /></p>
+     <p>Deskripsi   : <input type="text" name="deskripsi" ng-model="deskripsi" required /></p>
+    <button type="submit">Send</button>
+</form>
+    
     </div>
+
+            
+            </div>
         
 <!-- Blog Sidebar Widgets Column -->
 <div class="col-md-4">
