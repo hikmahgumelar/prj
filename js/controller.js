@@ -3,14 +3,20 @@ gapps.config(['$httpProvider', function($httpProvider){
 $httpProvider.defaults.useXDomain = true;
     delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }]);
-              
-              
-gapps.controller("controller",['$scope','$http',
-            function($scope, $http) {
-                $http.get('http://localhost:3000/users').success (function(data){$scope.dataKaryawan = data;});
-            }
-        ]
-);
+gapps.controller("EventsController", function ($scope, $http) {
+    $scope.proses = function() { 
+    var tujuan = $scope.tujuan;
+    var asal = $scope.asal;
+    
+    $http.get('/api/keretaapi?origination='+ asal + '&destination='+ tujuan + '&tanggal=20160409&apikey=TzW9lTM0RBsm2AgnL2M3AZgCZCcwz5hx_1412403086').
+    success(function (data) {
+        $scope.events = data;
+       $scope.class = data.class;
+    });
+    }
+    });              
+        
+
 gapps.controller('myCtrl', function ($scope, $http) {
   $scope.kirim = function () {
            // use $.param jQuery function to serialize data from JSON 
