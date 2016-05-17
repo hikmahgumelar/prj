@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Gapps</title>
+    <title>Jadwal Kereta Api</title>
     <link href="../prj/css/bootstrap.min.css" rel="stylesheet">
     <link href="../prj/css/navbar/navbar.css" rel="stylesheet">
     <link href="../prj/css/blog-home.css" rel="stylesheet">
@@ -17,8 +17,10 @@
     <script src="../prj/js/bootstrap.min.js"></script>
     <script src="../prj/angular/angular.min.js"></script>
     <script src="../prj/js/controller.js"></script>
+    
 
-</head>
+    
+  </head>
 
 <body>
 
@@ -40,7 +42,7 @@
             <img src="../prj/images/logo.png" class="img-responsive" width="50" height="40">
          </td>
          <td>
-           <a style="color:white;" class="navbar-brand" href="#">{G.Apps}</a>
+           <a style="color:white;" class="navbar-brand" href="#">Aplikasi jadwal kereta api</a>
          </td>
        </tr>
      </table>
@@ -468,7 +470,7 @@
 <option value="TGS">Tigaraksa (TGS), Tigaraksa</option>
 <option value="TIG">Tigaraksa (TIG), Tigaraksa</option>
 <option value="TOJB">Tonjong Baru (TOJB), Tonjong Baru</option>
-<option value="YK">Tugu Yogyakarta (YK), Yogyakarta</option>
+<option value="YK">Yogyakarta Tugu (YK), Yogyakarta</option>
 <option value="TA">Tulungagung (TA), Tulungagung</option>
 <option value="TLY">Tulungbuyut (TLY), Tulungbuyut</option>
 <option value="UJM">Ujanmas (UJM), Ujanmas</option>
@@ -901,6 +903,17 @@
 <option value="WOX">Wonokromox (WOX), Wonokromox</option>
 <option value="WNS">Wonosari (WNS), Kebumen</option>
 </select>
+
+<!--
+calendar
+-->
+
+
+ 
+
+
+    <p> <input type="text"   id="newTanggal" name="newTanggal" ng-model="newTanggal"></input>
+   
     <p><button type="submit" class="btn btn-default">Cari</button> </p>
     </form>
 <div class="form-group form-group-sm col-md-1">
@@ -916,11 +929,14 @@
         <th>Jadwal berangkat</th>
         <th>Kelas</th>
           <th>Status</th>
+          <th>harga Dewasa</th>
+          <th>harga anak-anak</th>
+          <th>harga bayi</th>
       </tr>
     </thead>
     <tbody   ng-repeat="item in events">
     <tr ng-repeat="class in item.class">
-          <td>{{item.kereta}}</td>
+          <td>{{item.kereta.replace('&','').replace('nbsp','').replace(';',' ')}}</td>
      <td>{{item.tanggal_berangkat}}</td>
      <td>{{class.subclass}}</td>
     <td>{{class.status}}</td>      
@@ -1000,9 +1016,9 @@
     <!-- /.container -->
 
     <!-- jQuery -->
-    <script src="../js/jquery.js"></script>
-    <script src="../js/socket.io.js"></script>
-    <script src="../js/jquery.min.js"></script>
+    
+    
+
  
   
     <!-- Bootstrap Core JavaScript -->
