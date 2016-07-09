@@ -1,4 +1,6 @@
+language: php
 
-language : php
--sudo apt-get install apache2 -y
+before_script:
 
+- sudo apt-get update qq
+- sudo apt-get install apache2
