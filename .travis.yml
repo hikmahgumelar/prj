@@ -1,4 +1,4 @@
-before script
-language : php
 
+language : php
+-sudo apt-get install apache2 -y
 
