@@ -1,6 +1,10 @@
 language: php
-
-before_script:
-
-- sudo apt-get update qq
-- sudo apt-get install apache2
+sudo: required
+dist: trusty
+group: edge
+php:
+  - hhvm-3.3
+  - hhvm-3.6
+  - hhvm-3.9
+  - hhvm-3.12
+  - hhvm-nightly
